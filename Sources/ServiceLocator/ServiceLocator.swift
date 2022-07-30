@@ -1,4 +1,4 @@
-public final class ServiceLocator {
+final class ServiceLocator {
 	
 	private lazy var services: [String: AnyObject] = .init()
 	

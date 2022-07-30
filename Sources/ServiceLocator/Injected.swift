@@ -8,12 +8,14 @@
 import Foundation
 
 @propertyWrapper
-struct Injected<Service: AnyObject> {
+public struct Injected<Service: AnyObject> {
 	
 	private var service: Service?
 	private weak var serviceLocator: ServiceLocator? = Configurator.shared.serviceLocator
 	
-	var wrappedValue: Service? {
+	public init() {}
+	
+	public var wrappedValue: Service? {
 		mutating get {
 			if service == nil {
 				self.service = serviceLocator?.getService(by: Service.self)
@@ -25,12 +27,9 @@ struct Injected<Service: AnyObject> {
 		}
 	}
 	
-	var projectedValue: Injected<Service> {
+	public var projectedValue: Injected<Service> {
 		get { self }
 		mutating set { self = newValue }
 	}
-	
-	
-	
 	
 }
