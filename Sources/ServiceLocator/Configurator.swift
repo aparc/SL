@@ -14,7 +14,7 @@ public final class Configurator {
 	
 	private init() {}
 	
-	func registerService<T: AnyObject>(_ service: T) {
+	public func registerService<T: AnyObject>(_ service: T) {
 		serviceLocator.addService(service: service)
 	}
 	
