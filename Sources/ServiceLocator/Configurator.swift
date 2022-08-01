@@ -9,7 +9,7 @@ import Foundation
 
 public final class Configurator {
 	
-	static let shared = Configurator()
+	public static let shared = Configurator()
 	let serviceLocator = ServiceLocator()
 	
 	private init() {}
